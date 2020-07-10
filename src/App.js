@@ -23,9 +23,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Title></Title>
+        <Title title="What To Do" sub="This is todos to get start! Check after done [v]"></Title>
         <Schedule></Schedule>
-        <Mantra></Mantra>
+        <Mantra
+          docs="believe in whatever choices I made trust myself for making that decision and just push
+        through straight away!!"
+        ></Mantra>
         {/* <Todos></Todos> */}
       </div>
     )

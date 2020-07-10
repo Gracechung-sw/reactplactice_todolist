@@ -6,8 +6,8 @@ class Title extends Component {
   render() {
     return (
       <header>
-        <h1>What To Do</h1>
-        This is todos to get start! Check after done [v]
+        <h1>{this.props.title}</h1>
+        {this.props.sub}
       </header>
     )
   }
