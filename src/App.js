@@ -23,10 +23,7 @@ class App extends Component {
         titleTitle: 'What To Do',
         sub: 'This is todos to get start! Check after done [v]',
       },
-      // mantra: {
-      //   docs:
-      //     'believe in whatever choices I made trust myself for making that decision and just push through straight away!!',
-      // },
+      selected_day: 0,
       mantra: [
         { mantraid: 1, docs: 'Practice Kindness' },
         { mantraid: 2, docs: 'Remember who you are.' },
@@ -61,11 +58,29 @@ class App extends Component {
     }
   }
   render() {
+    //Schedule의 <a href= 링크 누를 때마다
+    // 그 아래에 'scheduleProps[i].docs' 가 출력되었으면 좋겠음
+    // 이 역할을 하는 event를 부여해야 한다.
+    let scheduleDocs = null
+    for (let i = 0; i < this.state.scheduleDay.length; i++) {
+      let today = this.state.scheduleDay[i]
+      if (today.id === this.state.selected_day) {
+        scheduleDocs = today.docs
+        break
+      }
+    }
+
     return (
       <div className="App">
         <Title title={this.state.title.titleTitle} sub={this.state.title.sub}></Title>
-        <Schedule schedule={this.state.scheduleDay}></Schedule>
-        <Mantra docs={this.state.mantra}></Mantra>
+        <Schedule
+          schedule={this.state.scheduleDay}
+          onChangePage={function (id) {
+            //console.log('hi:', id)
+            this.setState({ selected_day: Number(id) })
+          }.bind(this)}
+        ></Schedule>
+        <Mantra docs={this.state.mantra} todayis={scheduleDocs}></Mantra>
         {/* <Todos></Todos> */}
       </div>
     )

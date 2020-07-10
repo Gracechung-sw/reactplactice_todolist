@@ -13,7 +13,19 @@ class Schedule extends Component {
     for (let i = 0; i < scheduleProps.length; i++) {
       scheduleList.push(
         <li>
-          <a href={'/content/' + scheduleProps[i].title}>{scheduleProps[i].docs}</a>
+          <a
+            href={'/content/' + scheduleProps[i].title}
+            // data-id={scheduleProps[i].id}
+            onClick={(e) => {
+              e.preventDefault() //이걸하지 않으면 원래 onClick의 실행방식이 실행되면서 화면 새로고침이 된다.
+
+              this.props.onChangePage(scheduleProps[i].id) ////scheduleProps[i].id 이렇게만 넣어주니까 클릭해도 selected_day가 바뀌지 않는다.
+              // console.log(scheduleProps[i].id)
+              //debugger
+            }}
+          >
+            {scheduleProps[i].title}
+          </a>
         </li>,
       )
     }

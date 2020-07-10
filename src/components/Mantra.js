@@ -14,7 +14,13 @@ class Mantra extends Component {
         break
       }
     }
-    return <div>{todayMantra}</div>
+    //console.log(this.props.todayis)
+    return (
+      <div>
+        <div>{todayMantra}</div>
+        <h3>{this.props.todayis}</h3>
+      </div>
+    )
   }
 }
 
