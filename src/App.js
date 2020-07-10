@@ -55,6 +55,20 @@ class App extends Component {
         { id: 6, title: 'Saturday', docs: 'Today is Saturday!' },
         { id: 7, title: 'Sunday', docs: 'Today is Sunday!' },
       ],
+      // checked: false,
+      whatTodo: [
+        { dayid: '1', docs: 'Study React', checkd: false },
+        { dayid: '1', docs: 'Office Hour1', checkd: false },
+        { dayid: '2', docs: 'Study Englist', checkd: false },
+        { dayid: '2', docs: 'Clean home', checkd: false },
+        { dayid: '3', docs: 'Complete Toy Problems', checkd: false },
+        { dayid: '3', docs: 'Office Hour2', checkd: false },
+        { dayid: '4', docs: 'Go to Wsork', checkd: false },
+        { dayid: '4', docs: 'Go to Gym', checkd: false },
+        { dayid: '5', docs: 'Eat out', checkd: false },
+        { dayid: '6', docs: 'Hangout', checkd: false },
+        { dayid: '7', docs: 'Sleep!', checkd: false },
+      ],
     }
   }
   render() {
@@ -81,7 +95,17 @@ class App extends Component {
           }.bind(this)}
         ></Schedule>
         <Mantra docs={this.state.mantra} todayis={scheduleDocs}></Mantra>
-        {/* <Todos></Todos> */}
+        <Todos
+          todo={this.state.whatTodo}
+          selectedDay={this.state.selected_day}
+          checkedTodos={this.state.checked}
+          handleChange={function (e) {
+            const {
+              target: { checked },
+            } = e
+            this.setState({ checked })
+          }.bind(this)}
+        ></Todos>
       </div>
     )
   }

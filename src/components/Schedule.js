@@ -23,6 +23,7 @@ class Schedule extends Component {
               // console.log(scheduleProps[i].id)
               //debugger
             }}
+            s
           >
             {scheduleProps[i].title}
           </a>
