@@ -16,19 +16,56 @@ class [Component이름] extends Component {
 */
 
 class App extends Component {
-  //App이라는 Component를 만들겠다.
-  //이렇게 Class의 상속 형태로 만들어지는 것의 의미는,
-  //'React의 Component 클래스를 상속받아서 App이라는 새로운 클래스를 만들거고,
-  //이 App 클래스는 render라는 메소드를 가진다.' 이다.
+  constructor(props) {
+    super(props)
+    this.state = {
+      title: {
+        titleTitle: 'What To Do',
+        sub: 'This is todos to get start! Check after done [v]',
+      },
+      // mantra: {
+      //   docs:
+      //     'believe in whatever choices I made trust myself for making that decision and just push through straight away!!',
+      // },
+      mantra: [
+        { mantraid: 1, docs: 'Practice Kindness' },
+        { mantraid: 2, docs: 'Remember who you are.' },
+        { mantraid: 3, docs: 'Be happy.' },
+        { mantraid: 4, docs: 'Life happens now.' },
+        { mantraid: 5, docs: 'Plan for victory, learn from defeat.' },
+        { mantraid: 6, docs: 'You are capable of wonderful things.' },
+        { mantraid: 7, docs: 'Wonder begets wisdom.' },
+        { mantraid: 8, docs: 'Express yourself.' },
+        { mantraid: 9, docs: 'Never stop dreaming.' },
+        { mantraid: 10, docs: 'Change can happen now' },
+        { mantraid: 11, docs: 'Accept and embrace all experiences.' },
+        { mantraid: 12, docs: 'Do more of what makes you happy.' },
+        { mantraid: 13, docs: 'Illuminate the beauty in others.' },
+        { mantraid: 14, docs: 'Let your light shine.' },
+        { mantraid: 15, docs: 'You are creative.' },
+        { mantraid: 16, docs: 'Follow your passion.' },
+        { mantraid: 17, docs: 'Judge less, accept more.' },
+        { mantraid: 18, docs: 'Start with optimism.' },
+        { mantraid: 19, docs: 'All is well.' },
+      ],
+      scheduleDay: [
+        // 복수의 앨리먼트를 생성할 때는 key라는 특수한 props를 사용해야 합니다.
+        { id: 1, title: 'Monday', docs: 'Today is Monday!' },
+        { id: 2, title: 'Tuesday', docs: 'Today is Tuesday!' },
+        { id: 3, title: 'Wednesday', docs: 'Today is Wednesday!' },
+        { id: 4, title: 'Thursday', docs: 'Today is Thursday!' },
+        { id: 5, title: 'Friday', docs: 'Today is Friday!' },
+        { id: 6, title: 'Saturday', docs: 'Today is Saturday!' },
+        { id: 7, title: 'Sunday', docs: 'Today is Sunday!' },
+      ],
+    }
+  }
   render() {
     return (
       <div className="App">
-        <Title title="What To Do" sub="This is todos to get start! Check after done [v]"></Title>
-        <Schedule></Schedule>
-        <Mantra
-          docs="believe in whatever choices I made trust myself for making that decision and just push
-        through straight away!!"
-        ></Mantra>
+        <Title title={this.state.title.titleTitle} sub={this.state.title.sub}></Title>
+        <Schedule schedule={this.state.scheduleDay}></Schedule>
+        <Mantra docs={this.state.mantra}></Mantra>
         {/* <Todos></Todos> */}
       </div>
     )
